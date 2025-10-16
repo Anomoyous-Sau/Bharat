@@ -15,7 +15,7 @@
 
 <body>
     
-    <audio autoplay loop hidden>
+   <audio id="bg-music" loop>
   <source src="Happy_Birthday.mp3" type="audio/mpeg">
 </audio>
 
@@ -47,6 +47,20 @@
         <source src="music/setlove.mp3" type="audio/mpeg">
         <source src="music/setlove.ogg" type="audio/ogg">
     </audio> -->
+
+<script>
+  // This will play music on first touch/click
+  document.addEventListener('touchstart', function playMusic() {
+    var music = document.getElementById('bg-music');
+    if (music.paused) {
+      music.play();
+    }
+    // Remove listener after first play
+    document.removeEventListener('touchstart', playMusic);
+  });
+</script>
+
+    
       <script src='https://cdn.jsdelivr.net/npm/canvas-confetti@1/dist/confetti.browser.min.js'></script>
     <script src="main.js"></script>
 
